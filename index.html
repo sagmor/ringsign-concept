@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<title>test</title>
+	<link type="text/css" href="css/application.css" rel="stylesheet" />	
+	<link type="text/css" href="css/jquery-ui.css" rel="stylesheet" />	
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery-ui.js" type="text/javascript" charset="utf-8"></script>
+
+	
+	<script language="JavaScript" type="text/javascript" src="js/rsa/jsbn.js"></script>
+  <script language="JavaScript" type="text/javascript" src="js/rsa/jsbn2.js"></script>
+  <script language="JavaScript" type="text/javascript" src="js/rsa/prng4.js"></script>
+  <script language="JavaScript" type="text/javascript" src="js/rsa/rng.js"></script>
+  <script language="JavaScript" type="text/javascript" src="js/rsa/rsa.js"></script>
+  <script language="JavaScript" type="text/javascript" src="js/rsa/rsa2.js"></script>
+	
+	<script src="js/sha1.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/aes/enc.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/aes/dec.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/aes/test.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/json.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/ring.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/application.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+  <h1>Ring Signing Concept Test</h1>
+  <h3>by Sebastián Gamboa</h3>
+  <div id="flash"></div>
+  
+<form action="" method="get" accept-charset="utf-8">
+  <div id="sign-box" class="ui-corner-all">
+    <h2>Message</h2>
+    <textarea name="message" id="message" rows="10" cols="60">Write your message...</textarea>
+
+    <h2>Signers</h2>
+    <ul id="signers"></ul>
+
+    <h2>Signature</h2>
+    <textarea name="signature" id="signature" rows="4" cols="60"></textarea>
+
+    <p><button id="sign">Sign</button> or <button id="validate">Validate</button></p>
+  </div>
+  
+  <div id="signers-box">
+    <h2><a href="#">Available Signers</a></h2>
+    <ul id="available-signers">
+    </ul>
+
+    <h2><a href="#">Create Signer</a></h2>
+
+    <fieldset id="create-signer">
+      <dl>
+        <dt><label for="signer-name">Name</label></dt>
+        <dd><input type="text" name="signer-name" value="" id="signer-name"></dd>
+
+        <dt><label for="signer-email">Email</label></dt>
+        <dd><input type="text" name="signer-email" value="" id="signer-email"></dd>
+
+        <dt><label for="signer-modulus">Modulus</label></dt>
+        <dd><input type="text" name="signer-modulus" value="" id="signer-modulus"></dd>
+
+        <dt><label for="signer-exponent">Exponent</label></dt>
+        <dd><input type="text" name="signer-exponent" value="" id="signer-exponent"></dd>
+      </dl>
+
+      <button id="signer-save">Save</button>
+    </fieldset>
+    
+    <h2><a href="#">Create Key</a></h2>
+    <fieldset id="create-key">
+      <dl>
+        <dt><label for="key-name">Name</label></dt>
+        <dd><input type="text" name="key-name" value="" id="key-name"></dd>
+
+        <dt><label for="key-email">Email</label></dt>
+        <dd><input type="text" name="key-email" value="" id="key-email"></dd>
+        
+        <dt><label for="key-p">Prime factor p</label></dt>
+        <dd><input type="text" name="key-p" value="" id="key-p"></dd>
+        
+        <dt><label for="key-p">Prime factor q</label></dt>
+        <dd><input type="text" name="key-q" value="" id="key-q"></dd>
+        
+        <dt><label for="key-e">Public Exponent e</label></dt>
+        <dd><input type="text" name="key-e" value="" id="key-e"></dd>
+        
+        <dt><label for="key-n">Public Modulo n</label></dt>
+        <dd><input type="text" name="key-n" value="" id="key-n"></dd>
+        
+        <dt><label for="key-p">Private exponent d</label></dt>
+        <dd><input type="text" name="key-d" value="" id="key-d"></dd>
+        
+        <dt><label for="key-dmp1">Private d mod (p-1)</label></dt>
+        <dd><input type="text" name="key-dmp1" value="" id="key-dmp1"></dd>
+        
+        <dt><label for="key-dmq1">Private d mod (q-1)</label></dt>
+        <dd><input type="text" name="key-dmq1" value="" id="key-dmq1"></dd>
+        
+        <dt><label for="key-coeff">Private 1/q mod p</label></dt>
+        <dd><input type="text" name="key-coeff" value="" id="key-coeff"></dd>
+      </dl>
+
+      <button id="key-generate">Generate</button> or <button id="key-save">Save</button>
+    </fieldset>
+    
+    <h2><a href="#">About</a></h2>
+    <p>This application is part of a project developed for the <a href="http://www.dcc.uchile.cl/~ahevia/cc51q/2009/index.html">modern cryptography introduction course</a> in the <a href="http://www.uchile.cl/">Universidad de Chile</a>.<br />
+      
+    It consists in a little application that signs messages using a basic implementation of <a href="http://www.cs.uwaterloo.ca/~bssadjad/courses/crypto/leak_secret_rivest.pdf">Ring Signatures</a>.<br />
+
+    The basic idea was to test the idea of signing messages without sending the user's private key to any third-party by storing this information in a local database as is specified in the HTML5 Standard.</p>
+    
+  </div>
+</form>
+
+<br class="clear" />
+
+</body>
+</html>

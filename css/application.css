@@ -1,0 +1,59 @@
+
+#sign-box {
+  border: 1px solid #999;
+  padding: 10px;
+  margin: 30px;
+  background-color: #FAFAFA;
+}
+
+#signers-box {
+    margin: 30px;
+}
+
+#signers-box h3 {
+
+}
+
+#sign-box {
+  width: 450px;
+  float: left;
+}
+
+#signers-box {
+  width: 350px;
+  float: left;
+}
+
+ul {
+  /* width: 290px; */
+  padding: 10px 20px;
+  margin: 10px auto;
+  border: 1px solid #999; 
+  
+}
+
+.clear {
+  clear: both;
+}
+
+dt {
+  font-weight: bold;
+}
+
+#create-signer, #create-key {
+  width: 300px;
+  margin: 10px auto;
+}
+
+#create-signer input, #create-key input {
+  width: 250px;
+}
+
+body{ 
+  font: 62.5% "Trebuchet MS", sans-serif;
+  margin: 90px;
+  background-color: #59C;
+}
+ul#icons {margin: 0; padding: 0;}
+ul#icons li {margin: 2px; position: relative; padding: 4px 0; cursor: pointer; float: left;  list-style: none;}
+ul#icons span.ui-icon {float: left; margin: 0 4px;}
